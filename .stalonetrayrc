@@ -1,0 +1,23 @@
+background "gray35"
+decorations none
+dockapp_mode none
+fuzzy_edges 0
+geometry 2x2 # seems that resizing later causes icons to disappear
+grow_gravity NW
+icon_gravity NW
+icon_size 48
+log_level err
+max_geometry 2x2
+no_shrink false
+parent_bg false
+scrollbars none
+skip_taskbar true
+sticky true
+tint_color white
+tint_level 0
+transparent false
+vertical false
+window_layer normal
+window_strut auto
+window_type normal
+xsync false

@@ -1,0 +1,8 @@
+! Terminal displayed on each virtual desktop.
+
+! Felix E. Klee <felix.klee@inka.de>
+
+backgroundterm*background: black
+backgroundterm*scrollColor: Dark Gray
+backgroundterm*troughColor: Dim Gray
+backgroundterm*scrollBar: false

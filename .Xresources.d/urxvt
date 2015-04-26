@@ -1,0 +1,31 @@
+URxvt*background: black
+URxvt*foreground: #cccccc
+URxvt.color0:  #000000
+URxvt.color8:  #555753
+URxvt.color1:  #cc0000
+URxvt.color9:  #EF2929
+URxvt.color2:  #4E9A06
+URxvt.color10: #8AE234
+URxvt.color3:  #C4A000
+URxvt.color11: #FCE94F
+URxvt.color4:  #3465A4
+URxvt.color12: #739FCF
+URxvt.color5:  #75507B
+URxvt.color13: #AD7FA8
+URxvt.color6:  #06989A
+URxvt.color14: #34E2E2
+URxvt.color7:  #D3D7CF
+URxvt.color15: #EEEEEC
+
+! Select the fonts to be used. This is a comma separated list of font names
+! that are checked in order when trying to find glyphs for characters. The
+! first font defines the cell size
+URxvt*font: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
+
+! Scrollbar:
+URxvt*thickness: 20
+URxvt*scrollBar_right: on
+URxvt*scrollColor: Dim Gray
+URxvt*troughColor: Dim Gray
+
+URxvt*cursorBlink: on

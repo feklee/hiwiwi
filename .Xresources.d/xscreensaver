@@ -1,0 +1,10 @@
+xscreensaver.newLoginCommand:
+xscreensaver.dateFormat:
+xscreensaver.Dialog.headingFont: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont: -xos4-terminus-bold-r-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont: -xos4-terminus-bold-r-*-*-32-*-*-*-*-*-*-*
+xscreensaver.passwd.thermometer.width: 16

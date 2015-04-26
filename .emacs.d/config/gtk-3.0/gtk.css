@@ -1,0 +1,6 @@
+.scrollbar {
+    -GtkScrollbar-has-backward-stepper: 1;
+    -GtkScrollbar-has-forward-stepper: 1;
+    -GtkRange-slider-width: 30;
+    -GtkRange-stepper-size: 40;
+}

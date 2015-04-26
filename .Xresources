@@ -1,0 +1,7 @@
+Xcursor.theme: redglass
+FvwmConsole*font: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
+
+#include ".Xresources.d/xft"
+#include ".Xresources.d/xscreensaver"
+#include ".Xresources.d/urxvt"
+#include ".Xresources.d/backgroundterm"
