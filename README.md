@@ -19,6 +19,8 @@ It may be interesting to make the system adapt to different screen resolutions.
 Installation
 ============
 
+Steps:
+
   * Link dot files to their respective places below `$HOME`.
 
   * Install software that is needed. Look in `.xinitrc`. Concerning
