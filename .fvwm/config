@@ -112,11 +112,12 @@ ButtonStyle 6 vector 4 50x25@1 75x75@0 25x75@0 50x25@1
 ButtonStyle 6 - MwmDecorShade
 
 AddToFunc MyMaximizeInLayer3
-+ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs", Layer 3) \
++ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs", Layer 3, \
+        !Transient) \
     ResizeMove 2592p 1620p 288p 0p
 
 AddToFunc MyUndecorateInLayer3
-+ I All (Layer 3) WindowStyle NoTitle, !Borders
++ I All (Layer 3, !Transient) WindowStyle NoTitle, !Borders
 
 AddToFunc MyUpdateLayer3
 + I MyUndecorateInLayer3
@@ -135,17 +136,17 @@ AddToFunc MyUpdateIfInList
 AddToFunc MyResizeInLayer4
 + I Current (Layer 4, "Firefox") Resize 1024p 768p
 
-# Some applications open dialog windows in the same layer, and then very big:
-# Correct that.
-AddToFunc MyMoveToLayer4AndResize
-+ I Layer 0 4
-+ I Current ("Vuescan") Resize 1024p 768p
+# Some applications always put all windows in the same layer, e.g. Vuescan.
+# Scale the transient windows. Moving them to layer 4 may also move the window
+# to layer 4, at least with Vuescan this seems to be the case.
+AddToFunc MyResizeTransientOnLayer3
++ I All (CurrentDesk, Layer 3, Transient, "Vuescan") Resize 1024p 768p
 
 AddToFunc MyUpdateOnConditions
 + I Any (CurrentDesk, Layer 3) MyResizeInLayer4
 + I None (CurrentDesk, Layer 3) MyUpdateIfInList
-+ I All (CurrentDesk, Layer 3, Transient) MyMoveToLayer4AndResize
-+ I InitBackgroundTerms
++ I MyResizeTransientOnLayer3
+#+ I InitBackgroundTerms
 # above called again in case there were background terms restarted
 
 
