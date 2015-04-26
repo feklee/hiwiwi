@@ -146,7 +146,7 @@ AddToFunc MyUpdateOnConditions
 + I Any (CurrentDesk, Layer 3) MyResizeInLayer4
 + I None (CurrentDesk, Layer 3) MyUpdateIfInList
 + I MyResizeTransientOnLayer3
-#+ I InitBackgroundTerms
++ I InitBackgroundTerms
 # above called again in case there were background terms restarted
 
 
@@ -223,8 +223,6 @@ AddToFunc RaiseAndFocusPrev
 + I Prev (CurrentDesk,!Focused,AcceptsFocus) Raise
 + I Prev (CurrentDesk,!Focused,AcceptsFocus) Focus
 
-# QQQ+ Style FvwmBanner NoDecor
-
 Key U                     A CMS Restart
 Key C                     A CMS FvwmConsole
 Key G                     A CMS EscapeFunc
@@ -252,6 +250,7 @@ AddToFunc StartFunction
 # Called during restarts just after StartFunction
 AddToFunc RestartFunction
 + I InitBackgroundTerms
++ I MyUpdateLayer3
 
 
 # Setup of FVWMButtons (also known as the button bar or as the task bar)
