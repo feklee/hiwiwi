@@ -135,9 +135,16 @@ AddToFunc MyUpdateIfInList
 AddToFunc MyResizeInLayer4
 + I Current (Layer 4, "Firefox") Resize 1024p 768p
 
+# Some applications open dialog windows in the same layer, and then very big:
+# Correct that.
+AddToFunc MyMoveToLayer4AndResize
++ I Layer 0 4
++ I Current ("Vuescan") Resize 1024p 768p
+
 AddToFunc MyUpdateOnConditions
 + I Any (CurrentDesk, Layer 3) MyResizeInLayer4
 + I None (CurrentDesk, Layer 3) MyUpdateIfInList
++ I All (CurrentDesk, Layer 3, Transient) MyMoveToLayer4AndResize
 + I InitBackgroundTerms
 # above called again in case there were background terms restarted
 
