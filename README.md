@@ -6,12 +6,14 @@ Introduction
 
 Guidelines:
 
-  * Control the system using the command line.
+  * System is controlled via the command line.
 
   * Easy to grasp UI, clearly laid out: Everything is visible all the time in a
     classic windowing system.
 
   * Good visibility on a high DPI screen: 2880×1620 px / 15.5"
+
+  * Vertical screen real estate is for content.
 
 It may be interesting to make the system adapt to different screen resolutions.
 
