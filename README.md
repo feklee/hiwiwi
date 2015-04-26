@@ -27,6 +27,13 @@ Steps:
     compatibility, consider the age of the last modification / commit.
 
 
+Known issues
+============
+
+  * Emacs 24.5.1 doesn’t play well with GDK scaling. To get a usable scrollbar,
+    see the [workaround][2] posted on 2015-04-26 WEST in the Arch Linux Forums.
+
+
 License
 =======
 
@@ -39,3 +46,4 @@ the Do What The Fuck You Want To Public License, Version 2, as published by Sam
 Hocevar. See the COPYING file for more details.
 
 [1]: http://support.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t550/20cj/s01p00
+[2]: https://bbs.archlinux.org/viewtopic.php?pid=1523352#p1523352
