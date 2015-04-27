@@ -189,10 +189,11 @@ AddToFunc MyOnWindowAdd
 AddToFunc MyUpdateBackgroundTerms
 + I All ("backgroundterm") Layer 0 2
 
-Module FvwmEvent
-*FvwmEvent: Cmd
-*FvwmEvent: add_window MyOnWindowAdd
-*FvwmEvent: new_desk MyUpdateLayer3 # nice to have after restart
+AddToFunc StartFunction
++ I Module FvwmEvent
++ I *FvwmEvent: Cmd
++ I *FvwmEvent: add_window MyOnWindowAdd
++ I *FvwmEvent: new_desk MyUpdateLayer3 # nice to have after restart
 
 AddToFunc StartFunction
 + I UpdateBackgroundTerms
