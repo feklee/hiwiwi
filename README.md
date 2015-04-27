@@ -11,7 +11,7 @@ Guidelines:
   * Easy to grasp UI, clearly laid out: Everything is visible all the time in a
     classic windowing system.
 
-  * Good visibility on a high DPI screen: 2880×1620 px / 15.5"
+  * Good visibility on a high DPI screen: 2880Ã—1620Â px / 15.5"
 
   * Vertical screen real estate is for content.
 
@@ -32,8 +32,17 @@ Steps:
 Known issues
 ============
 
-  * Emacs 24.5.1 doesn’t play well with GDK scaling. To get a usable scrollbar,
-    see the [workaround][2] posted on 2015-04-26 WEST in the Arch Linux Forums.
+  * Emacs 24.5.1 doesnâ€™t play well with GDK scaling, set in `.xinitrc`. To get
+    a usable scrollbar, see the [workaround][2] posted on 2015-04-26 WEST in
+    the Arch Linux Forums.
+
+
+Coding conventions
+==================
+
+  * Maximum line length (where enforceable): 80 characters
+
+  * Comments in Markdown.
 
 
 License
@@ -41,7 +50,7 @@ License
 
 Except where noted otherwise, files are licensed under the WTFPL.
 
-Copyright © 2015 [Felix E. Klee](felix.klee@inka.de)
+Copyright Â© 2015 [Felix E. Klee](felix.klee@inka.de)
 
 This work is free. You can redistribute it and/or modify it under the terms of
 the Do What The Fuck You Want To Public License, Version 2, as published by Sam

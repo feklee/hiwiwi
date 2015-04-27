@@ -1,52 +1,27 @@
-AddToFunc InitPager
-+ I . Module FvwmPager 0 8
-+ I . *FvwmPager: Columns 1
-+ I . *FvwmPager: Rows 9
-+ I *FvwmPager: Back gray5
-+ I *FvwmPager: Fore $[FVWM_WBG]
-+ I *FvwmPager: Font none
-+ I *FvwmPager: MiniIcons
-
-
 # Colors for widgets (background, foreground, highlight):
 SetEnv FVWM_WBG gray35
 SetEnv FVWM_WFG black
 SetEnv FVWM_WHL gray70
 
-# Colors for text, etc. fields (background, foreground, highlight):
-SetEnv FVWM_FBG gray15
-SetEnv FVWM_FFG green
 
 # Colors for windows (background foreground, highlight):
-
 SetEnv FVWM_WINBG gray30
 SetEnv FVWM_WINFG black
 SetEnv FVWM_WINHL gray60
 
 
-#
-# Paths for FVWM
-#
-ImagePath $[HOME]/.fvwm
+# Icons shown in pager:
+Style Emacs MiniIcon "/usr/share/icons/hicolor/scalable/apps/emacs.svg"
+Style Firefox MiniIcon "/usr/share/icons/hicolor/48x48/apps/firefox.png"
+Style Thunderbird MiniIcon \
+      "/usr/share/icons/hicolor/48x48/apps/thunderbird.png"
+Style Gramps MiniIcon "/usr/share/gramps/images/48x48/gramps.png"
+Style Evince MiniIcon "/usr/share/icons/hicolor/48x48/apps/evince.png"
+Style Acroread MiniIcon \
+      "/opt/Adobe/Reader9/Resource/Icons/48x48/AdobeReader9.png"
+Style Vuescan MiniIcon \
+      "/usr/share/icons/gnome/48x48/devices/scanner.png"
 
-
-#
-# Removing built in bindings
-#
-
-Key F1 R A -
-Key Tab A M -
-Key Escape A MC -
-Mouse 1 TS A -
-Mouse 1 F  A -
-Mouse 2 R  A -
-DestroyFunc FuncFvwmRaiseLowerX
-
-
-
-#
-# Utility functions:
-#
 
 # Definition of a function to allow easy inline Perl preprocessing: Simply call
 # the function with a perl expression enclosed in '%{' and '}%'.  Variables
@@ -54,6 +29,29 @@ DestroyFunc FuncFvwmRaiseLowerX
 DestroyFunc .
 AddToFunc .
 + I SendToModule FvwmPerl eval preprocess({ 'command' => 1 } , q~$*~)
+
+
+# Removal of built-in default configuration:
+Key F1 R A -
+Key Tab A M -
+Key Escape A MC -
+Mouse 1 TS A -
+Mouse 1 F  A -
+Mouse 2 R  A -
+DestroyFunc FuncFvwmRaiseLowerX
+Silent Key Help R A -
+Key F1 R A -
+DestroyMenu MenuFvwmRoot
+
+
+AddToFunc InitPager
++ I Module FvwmPager 0 8
++ I *FvwmPager: Columns 1
++ I *FvwmPager: Rows 9
++ I *FvwmPager: Back gray5
++ I *FvwmPager: Fore $[FVWM_WBG]
++ I *FvwmPager: Font none
++ I *FvwmPager: MiniIcons
 
 
 
@@ -72,6 +70,7 @@ DesktopSize 1x1
 
 SetEnv FVWM_BORDER_WIDTH 12
 
+Style * EWMHMiniIconOverride
 Style * DecorateTransient
 Style * !Iconifiable
 Style * ClickToFocus
@@ -89,24 +88,12 @@ Style * Font "xft:DejaVuSans:size=10"
 Borderstyle -- Raised
 OpaqueMoveSize 100
 HideGeometryWindow Never
-SnapAttraction 5
+SnapAttraction 10
 
 Style backgroundterm !Title, !Borders, !Handles, GrabFocus, Style *
 Style backgroundterm BackColor gray5, HilightBack gray5
 
 Style FvwmButtons BackColor "Dark Green"
-
-Style * EWMHMiniIconOverride
-Style Emacs MiniIcon "/usr/share/icons/hicolor/scalable/apps/emacs.svg"
-Style Firefox MiniIcon "/usr/share/icons/hicolor/48x48/apps/firefox.png"
-Style Thunderbird MiniIcon \
-      "/usr/share/icons/hicolor/48x48/apps/thunderbird.png"
-Style Gramps MiniIcon "/usr/share/gramps/images/48x48/gramps.png"
-Style Evince MiniIcon "/usr/share/icons/hicolor/48x48/apps/evince.png"
-Style Acroread MiniIcon \
-      "/opt/Adobe/Reader9/Resource/Icons/48x48/AdobeReader9.png"
-Style Vuescan MiniIcon \
-      "/usr/share/icons/gnome/48x48/devices/scanner.png"
 
 ButtonStyle 6 vector 4 50x25@1 75x75@0 25x75@0 50x25@1
 ButtonStyle 6 - MwmDecorShade
@@ -194,34 +181,9 @@ Mouse 1      SF   A    RaiseAndResize
 # Miscellaneous
 #
 
-AddToFunc InitX
-+ I Exec exec xhost amd300
-+ I Exec exec xhost ibm550
-+ I Exec exec xhost localhost
-+ I Exec exec xset b on
-+ I Exec exec xset s off
-+ I Exec exec xset -dpms
-+ I Exec exec sudo /usr/local/lib/t41-tools/update_power
-+ I Exec exec echo "$DBUS_SESSION_BUS_ADDRESS" >/var/tmp/DBUS_SESSION_BUS_ADDRESS
-
 EdgeResistance 100 32
 EdgeScroll 0 0
 EdgeThickness 1
-
-# Gives focus to the window currently on top
-AddToFunc FocusRaised
-+ I Next (AcceptsFocus,Raised,CurrentDesk) Focus
-
-# From the FVWM man page: "The windows in the ring are either ordered by
-# creation time (if the FPSortWindowlistByFocus respecively NeverFocus or
-# MouseFocus styles are used) or by the last time they had the focus."
-AddToFunc RaiseAndFocusNext
-+ I Next (CurrentDesk,!Focused,AcceptsFocus) Raise
-+ I Next (CurrentDesk,!Focused,AcceptsFocus) Focus
-
-AddToFunc RaiseAndFocusPrev
-+ I Prev (CurrentDesk,!Focused,AcceptsFocus) Raise
-+ I Prev (CurrentDesk,!Focused,AcceptsFocus) Focus
 
 Key U                     A CMS Restart
 Key C                     A CMS FvwmConsole
@@ -231,19 +193,12 @@ Key Escape                A   4 Exec exec xkill
 Key XF86MonBrightnessDown A   - Exec exec xbacklight -dec 10
 Key XF86MonBrightnessUp   A   - Exec exec xbacklight -inc 10
 
-# Disables "Builtin  Menu":
-Silent Key Help R A -
-Key F1 R A -
-DestroyMenu MenuFvwmRoot
-
 # Called on startups and restarts
 AddToFunc StartFunction
 + I ModuleSynchronous FvwmPerl
-+ I InitX
 + I InitDesks
-+ I InitWindowMenus
 + I InitPager
-+ I InitButtons
++ I MyInitButtons
 + I Module FvwmEvent
 + I InitBackgroundTerms
 
@@ -253,58 +208,33 @@ AddToFunc RestartFunction
 + I MyUpdateLayer3
 
 
+# xxkb is not started from `~/.xinitrc`, because then sometimes it is swallowed
+# by stalonetray: <https://sourceforge.net/p/xxkb/bugs/24/>
+AddToFunc MySwallowXxkb
++ I *FvwmButtons: (1x1+1+9 Swallow(NoClose, UseOld, NoHints) "XXkb" \
+                  "Exec exec xxkb")
+
+
 # Setup of FVWMButtons (also known as the button bar or as the task bar)
-AddToFunc InitButtons
-+ I . Module FvwmButtons
-+ I . Style FvwmButtons NeverFocus, NoTitle, TitleAtRight, Sticky, !Borders
-+ I . Style FvwmButtons WindowListSkip, StaysOnBottom
-+ I . *FvwmButtons: BoxSize fixed
-+ I . *FvwmButtons: Columns 2
-+ I . *FvwmButtons: Rows 10
-+ I . *FvwmButtons: Padding 2 2
-+ I . *FvwmButtons: Back $[FVWM_WBG]
-+ I . *FvwmButtons: Fore $[FVWM_WFG]
-+ I . *FvwmButtons: Frame 4
-+ I . *FvwmButtons: Geometry 288x1620+0+0
-+ I . *FvwmButtons: (2x9+0 Swallow(UseOld) "FvwmPager")
-+ I . *FvwmButtons: (1x1+1+9 Swallow(NoClose, UseOld, NoHints) "XXkb" \
-                    "Exec exec xxkb")
-+ I . *FvwmButtons: (1x1+0+9 Swallow(NoClose, UseOld) "stalonetray")
+AddToFunc MyInitButtons
++ I Module FvwmButtons
++ I Style FvwmButtons NeverFocus, NoTitle, TitleAtRight, Sticky, !Borders
++ I Style FvwmButtons WindowListSkip, StaysOnBottom
++ I *FvwmButtons: BoxSize fixed
++ I *FvwmButtons: Columns 2
++ I *FvwmButtons: Rows 10
++ I *FvwmButtons: Padding 2 2
++ I *FvwmButtons: Back $[FVWM_WBG]
++ I *FvwmButtons: Fore $[FVWM_WFG]
++ I *FvwmButtons: Frame 4
++ I *FvwmButtons: Geometry 288x1620+0+0
++ I *FvwmButtons: (2x9+0 Swallow(UseOld) "FvwmPager")
++ I *FvwmButtons: (1x1+0+9 Swallow(NoClose, UseOld) "stalonetray")
++ I MySwallowXxkb
 
 
 AddToFunc InitBackgroundTerms
 + I All ("backgroundterm") Layer 0 2
-
-
-#
-# FvwmIconMan:
-#
-
-AddToFunc DeiconifyAndFocusAndRaise
-+ I Iconify false
-+ I Focus
-+ I Raise
-
-*FvwmIconMan: Background $[FVWM_WBG]
-*FvwmIconMan: Foreground $[FVWM_WFG]
-#*FvwmIconMan: DrawIcons always
-*FvwmIconMan: Font "-misc-fixed-medium-r-semicondensed-*-*-120-*-*-*-*-*-*"
-*FvwmIconMan: Action Mouse 1 A sendcommand DeiconifyAndFocusAndRaise
-*FvwmIconMan: Action Mouse 2 A sendcommand Iconify
-*FvwmIconMan: Format "%t"
-*FvwmIconMan: Page
-*FvwmIconMan: Show *
-*FvwmIconMan: DontShow FvwmButtons
-*FvwmIconMan: PlainButton up
-*FvwmIconMan: SelectButton up $[FVWM_WFG] $[FVWM_WHL]
-*FvwmIconMan: FocusButton down $[FVWM_WFG] $[FVWM_WBG]
-*FvwmIconMan: FocusAndSelectButton down $[FVWM_WFG] $[FVWM_WHL]
-*FvwmIconMan: IconButton up
-*FvwmIconMan: FollowFocus true
-*FvwmIconMan: ManagerGeometry 2x4
-*FvwmIconMan: ButtonGeometry 10x16 # Horizontal size seems to be ignored
-*FvwmIconMan: UseWinList false
-*FvwmIconMan: ShowTransient False
 
 # The following settings are interpreted by EMACS, do not remove them.
 # Local Variables:
