@@ -201,7 +201,7 @@ AddToFunc StartFunction
 
 # The following settings are interpreted by EMACS, do not remove them.
 # Local Variables:
-# mode: fvwm
+# mode: shell-script
 # fill-column: 80
 # coding: utf-8
 # End:
