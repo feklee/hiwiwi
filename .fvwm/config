@@ -45,11 +45,11 @@ Style * NoIcon
 Style * HandleWidth 12
 Style * MwmBorder, MwmButtons, MwmFunctions
 Style * Font "xft:DejaVuSans:size=10"
-ButtonStyle Active 2 Pixmap "close_button_active.png"
-ButtonStyle Inactive 2 Pixmap "close_button_inactive.png"
+ButtonStyle 2 Active Pixmap "close_button_active.png"
+ButtonStyle 2 Inactive Pixmap "close_button_inactive.png"
 Borderstyle -- Raised
 OpaqueMoveSize 100
-HideGeometryWindow Never
+HideGeometryWindow
 SnapAttraction 10
 
 
