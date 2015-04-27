@@ -1,20 +1,5 @@
-CleanupColorsets
-Colorset 0 fg black, bg rgb:b4/aa/94
-Colorset 1 fg black, bg rgb:a1/b2/c8
-
-# Colors for widgets (background, foreground, highlight):
-SetEnv FVWM_WBG gray35
-SetEnv FVWM_WFG black
-SetEnv FVWM_WHL gray70
-
-# Colors for windows (background foreground, highlight):
-SetEnv FVWM_WINBG gray30
-SetEnv FVWM_WINFG black
-SetEnv FVWM_WINHL gray60
-
-
-# Perl scripting support
-# ======================
+# Perl scripting support (needs to be set up first)
+# =================================================
 
 # Definition of a function to allow easy inline Perl preprocessing: Simply call
 # the function with a perl expression enclosed in '%{' and '}%'.  Variables
@@ -27,59 +12,73 @@ AddToFunc StartFunction
 + I ModuleSynchronous FvwmPerl
 
 
+# Colors
+# ======
+
+AddToFunc StartFunction
++ I CleanupColorsets
++ I Colorset 0 fg black, bg gray35
++ I Colorset 1 fg black, bg gray30
++ I Colorset 2 fg black, bg gray60
+
+
 # Window look and feel
 # ====================
-SetEnv FVWM_BORDER_WIDTH 12
-ImagePath $HOME/.fvwm
-Style * EWMHMiniIconOverride
-Style * DecorateTransient
-Style * !Iconifiable
-Style * ClickToFocus
-Style * ClickToFocusRaisesOff
-Style * GrabFocusTransient
-Style * TileCascadePlacement
-Style * ForeColor $[FVWM_WINFG], BackColor $[FVWM_WINBG]
-Style * HilightFore $[FVWM_WINFG], HilightBack $[FVWM_WINHL]
-Style * MwmBorder, DepressableBorder
-Style * NoIcon
-Style * HandleWidth 12
-Style * MwmBorder, MwmButtons, MwmFunctions
-Style * Font "xft:DejaVuSans:size=10"
-ButtonStyle 2 Active Pixmap "close_button_active.png"
-ButtonStyle 2 Inactive Pixmap "close_button_inactive.png"
-Borderstyle -- Raised
-OpaqueMoveSize 100
-HideGeometryWindow
-SnapAttraction 10
+
+AddToFunc StartFunction
++ I SetEnv FVWM_BORDER_WIDTH 12
++ I ImagePath $HOME/.fvwm
++ I Style * EWMHMiniIconOverride
++ I Style * DecorateTransient
++ I Style * !Iconifiable
++ I Style * ClickToFocus
++ I Style * ClickToFocusRaisesOff
++ I Style * GrabFocusTransient
++ I Style * TileCascadePlacement
++ I Style * Colorset 1
++ I Style * HilightColorset 2
++ I Style * MwmBorder, DepressableBorder
++ I Style * NoIcon
++ I Style * HandleWidth 12
++ I Style * MwmBorder, MwmButtons, MwmFunctions
++ I Style * Font "xft:DejaVuSans:size=10"
++ I ButtonStyle 2 Active Pixmap "close_button_active.png"
++ I ButtonStyle 2 Inactive Pixmap "close_button_inactive.png"
++ I Borderstyle -- Raised
++ I OpaqueMoveSize 100
++ I HideGeometryWindow
++ I SnapAttraction 10
 
 
 # Keyboard and mouse
 # ==================
 
 # Removal of built-in default configuration
-Key F1 R A -
-Key Tab A M -
-Key Escape A MC -
-Mouse 1 TS A -
-Mouse 1 F  A -
-Mouse 2 R  A -
-DestroyFunc FuncFvwmRaiseLowerX
-Silent Key Help R A -
-Key F1 R A -
-DestroyMenu MenuFvwmRoot
+AddToFunc StartFunction
++ I Key F1 R A -
++ I Key Tab A M -
++ I Key Escape A MC -
++ I Mouse 1 TS A -
++ I Mouse 1 F  A -
++ I Mouse 2 R  A -
++ I DestroyFunc FuncFvwmRaiseLowerX
++ I Silent Key Help R A -
++ I Key F1 R A -
++ I DestroyMenu MenuFvwmRoot
 
-EdgeScroll 0 0
-Key U                     A CMS Restart
-Key C                     A CMS FvwmConsole
-Key G                     A CMS EscapeFunc
-Key L                     A   4 Exec exec xscreensaver-command -lock
-Key Escape                A   4 Exec exec xkill
-Key XF86MonBrightnessDown A   - Exec exec xbacklight -dec 10
-Key XF86MonBrightnessUp   A   - Exec exec xbacklight -inc 10
-Mouse 1 T  A MyRaiseAndMove
-Mouse 1 W  A Nop
-Mouse 1 SF A MyRaiseAndResize
-Mouse 1 2  A Close
+AddToFunc StartFunction
++ I EdgeScroll 0 0
++ I Key U                     A CMS Restart
++ I Key C                     A CMS FvwmConsole
++ I Key G                     A CMS EscapeFunc
++ I Key L                     A   4 Exec exec xscreensaver-command -lock
++ I Key Escape                A   4 Exec exec xkill
++ I Key XF86MonBrightnessDown A   - Exec exec xbacklight -dec 10
++ I Key XF86MonBrightnessUp   A   - Exec exec xbacklight -inc 10
++ I Mouse 1 T  A MyRaiseAndMove
++ I Mouse 1 W  A Nop
++ I Mouse 1 SF A MyRaiseAndResize
++ I Mouse 1 2  A Close
 
 AddToFunc MyRaiseAndResize
 + I Raise
@@ -93,56 +92,60 @@ AddToFunc MyRaiseAndMove
 # Pager, desktop, and buttons panel
 # =================================
 
-DesktopSize 1x1
-Module FvwmPager 0 8
-*FvwmPager: Columns 1
-*FvwmPager: Rows 9
-*FvwmPager: Back gray5
-*FvwmPager: Fore $[FVWM_WBG]
-*FvwmPager: Font none
-*FvwmPager: MiniIcons
+AddToFunc StartFunction
++ I DesktopSize 1x1
+
+AddToFunc StartFunction
++ I Module FvwmPager 0 8
++ I *FvwmPager: Columns 1
++ I *FvwmPager: Rows 9
++ I *FvwmPager: Back gray5
++ I *FvwmPager: Fore gray35
++ I *FvwmPager: Font none
++ I *FvwmPager: MiniIcons
+
+AddToFunc StartFunction
++ I Module FvwmButtons
++ I Style FvwmButtons NeverFocus, NoTitle, TitleAtRight, Sticky, !Borders
++ I Style FvwmButtons WindowListSkip, StaysOnBottom
++ I *FvwmButtons: BoxSize fixed
++ I *FvwmButtons: Columns 2
++ I *FvwmButtons: Rows 10
++ I *FvwmButtons: Padding 2 2
++ I *FvwmButtons: Colorset 0
++ I *FvwmButtons: Frame 4
++ I *FvwmButtons: Geometry 288x1620+0+0
++ I *FvwmButtons: (2x9+0 Swallow(UseOld) "FvwmPager")
++ I *FvwmButtons: (1x1+0+9 Swallow(NoClose, UseOld) "stalonetray")
 
 # xxkb is not started from `~/.xinitrc`, because then sometimes it is swallowed
 # by stalonetray: <https://sourceforge.net/p/xxkb/bugs/24/>
-AddToFunc MySwallowXxkb
+AddToFunc StartFunction
 + I *FvwmButtons: (1x1+1+9 Swallow(NoClose, UseOld, NoHints) "XXkb" \
                   "Exec exec xxkb")
-
-Module FvwmButtons
-Style FvwmButtons NeverFocus, NoTitle, TitleAtRight, Sticky, !Borders
-Style FvwmButtons WindowListSkip, StaysOnBottom
-*FvwmButtons: BoxSize fixed
-*FvwmButtons: Columns 2
-*FvwmButtons: Rows 10
-*FvwmButtons: Padding 2 2
-*FvwmButtons: Back $[FVWM_WBG]
-*FvwmButtons: Fore $[FVWM_WFG]
-*FvwmButtons: Frame 4
-*FvwmButtons: Geometry 288x1620+0+0
-*FvwmButtons: (2x9+0 Swallow(UseOld) "FvwmPager")
-*FvwmButtons: (1x1+0+9 Swallow(NoClose, UseOld) "stalonetray")
-MySwallowXxkb
 
 
 # Automatic layout
 # ================
 
 # Colors appear in pager:
-Style backgroundterm !Title, !Borders, !Handles, GrabFocus, Style *
-Style backgroundterm BackColor gray5, HilightBack gray5
-Style FvwmButtons BackColor "Dark Green"
+AddToFunc StartFunction
++ I Style backgroundterm !Title, !Borders, !Handles, GrabFocus, Style *
++ I Style backgroundterm BackColor gray5, HilightBack gray5
++ I Style FvwmButtons BackColor "Dark Green"
 
 # Icons shown in pager:
-Style Emacs MiniIcon "/usr/share/icons/hicolor/scalable/apps/emacs.svg"
-Style Firefox MiniIcon "/usr/share/icons/hicolor/48x48/apps/firefox.png"
-Style Thunderbird MiniIcon \
-      "/usr/share/icons/hicolor/48x48/apps/thunderbird.png"
-Style Gramps MiniIcon "/usr/share/gramps/images/48x48/gramps.png"
-Style Evince MiniIcon "/usr/share/icons/hicolor/48x48/apps/evince.png"
-Style Acroread MiniIcon \
-      "/opt/Adobe/Reader9/Resource/Icons/48x48/AdobeReader9.png"
-Style Vuescan MiniIcon \
-      "/usr/share/icons/gnome/48x48/devices/scanner.png"
+AddToFunc StartFunction
++ I Style Emacs MiniIcon "/usr/share/icons/hicolor/scalable/apps/emacs.svg"
++ I Style Firefox MiniIcon "/usr/share/icons/hicolor/48x48/apps/firefox.png"
++ I Style Thunderbird MiniIcon \
++ I       "/usr/share/icons/hicolor/48x48/apps/thunderbird.png"
++ I Style Gramps MiniIcon "/usr/share/gramps/images/48x48/gramps.png"
++ I Style Evince MiniIcon "/usr/share/icons/hicolor/48x48/apps/evince.png"
++ I Style Acroread MiniIcon \
++ I       "/opt/Adobe/Reader9/Resource/Icons/48x48/AdobeReader9.png"
++ I Style Vuescan MiniIcon \
++ I       "/usr/share/icons/gnome/48x48/devices/scanner.png"
 
 AddToFunc MyMaximizeInLayer3
 + I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs", Layer 3, \
