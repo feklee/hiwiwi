@@ -1,3 +1,8 @@
+CleanupColorsets
+Colorset 0 fg black, bg rgb:b4/aa/94
+Colorset 1 fg black, bg rgb:a1/b2/c8
+
+
 # Colors for widgets (background, foreground, highlight):
 SetEnv FVWM_WBG gray35
 SetEnv FVWM_WFG black
@@ -21,7 +26,7 @@ Style Acroread MiniIcon \
       "/opt/Adobe/Reader9/Resource/Icons/48x48/AdobeReader9.png"
 Style Vuescan MiniIcon \
       "/usr/share/icons/gnome/48x48/devices/scanner.png"
-
+ k
 
 # Definition of a function to allow easy inline Perl preprocessing: Simply call
 # the function with a perl expression enclosed in '%{' and '}%'.  Variables
@@ -85,6 +90,7 @@ Style * BorderWidth $[FVWM_BORDER_WIDTH], HandleWidth $[FVWM_BORDER_WIDTH]
 Style * MwmBorder
 Style * MwmButtons, MwmFunctions
 Style * Font "xft:DejaVuSans:size=10"
+MenuStyle * Font "xft:DejaVuSans:size=10"
 Borderstyle -- Raised
 OpaqueMoveSize 100
 HideGeometryWindow Never
@@ -97,6 +103,10 @@ Style FvwmButtons BackColor "Dark Green"
 
 ButtonStyle 6 vector 4 50x25@1 75x75@0 25x75@0 50x25@1
 ButtonStyle 6 - MwmDecorShade
+
+ImagePath $HOME/.fvwm
+
+ButtonStyle 2 Pixmap "close_button.png"
 
 AddToFunc MyMaximizeInLayer3
 + I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs", Layer 3, \
@@ -192,6 +202,8 @@ Key L                     A   4 Exec exec xscreensaver-command -lock
 Key Escape                A   4 Exec exec xkill
 Key XF86MonBrightnessDown A   - Exec exec xbacklight -dec 10
 Key XF86MonBrightnessUp   A   - Exec exec xbacklight -inc 10
+
+Mouse 1 2 A Close
 
 # Called on startups and restarts
 AddToFunc StartFunction
