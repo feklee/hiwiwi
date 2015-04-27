@@ -2,18 +2,135 @@ CleanupColorsets
 Colorset 0 fg black, bg rgb:b4/aa/94
 Colorset 1 fg black, bg rgb:a1/b2/c8
 
-
 # Colors for widgets (background, foreground, highlight):
 SetEnv FVWM_WBG gray35
 SetEnv FVWM_WFG black
 SetEnv FVWM_WHL gray70
-
 
 # Colors for windows (background foreground, highlight):
 SetEnv FVWM_WINBG gray30
 SetEnv FVWM_WINFG black
 SetEnv FVWM_WINHL gray60
 
+
+# Perl scripting support
+# ======================
+
+# Definition of a function to allow easy inline Perl preprocessing: Simply call
+# the function with a perl expression enclosed in '%{' and '}%'.  Variables
+# of type "$f::variable" can be used to store state in between function calls.
+DestroyFunc .
+AddToFunc .
++ I SendToModule FvwmPerl eval preprocess({ 'command' => 1 } , q~$*~)
+
+AddToFunc StartFunction
++ I ModuleSynchronous FvwmPerl
+
+
+# Window look and feel
+# ====================
+SetEnv FVWM_BORDER_WIDTH 12
+ImagePath $HOME/.fvwm
+Style * EWMHMiniIconOverride
+Style * DecorateTransient
+Style * !Iconifiable
+Style * ClickToFocus
+Style * ClickToFocusRaisesOff
+Style * GrabFocusTransient
+Style * TileCascadePlacement
+Style * ForeColor $[FVWM_WINFG], BackColor $[FVWM_WINBG]
+Style * HilightFore $[FVWM_WINFG], HilightBack $[FVWM_WINHL]
+Style * MwmBorder, DepressableBorder
+Style * NoIcon
+Style * HandleWidth 12
+Style * MwmBorder, MwmButtons, MwmFunctions
+Style * Font "xft:DejaVuSans:size=10"
+ButtonStyle Active 2 Pixmap "close_button_active.png"
+ButtonStyle Inactive 2 Pixmap "close_button_inactive.png"
+Borderstyle -- Raised
+OpaqueMoveSize 100
+HideGeometryWindow Never
+SnapAttraction 10
+
+
+# Keyboard and mouse
+# ==================
+
+# Removal of built-in default configuration
+Key F1 R A -
+Key Tab A M -
+Key Escape A MC -
+Mouse 1 TS A -
+Mouse 1 F  A -
+Mouse 2 R  A -
+DestroyFunc FuncFvwmRaiseLowerX
+Silent Key Help R A -
+Key F1 R A -
+DestroyMenu MenuFvwmRoot
+
+EdgeScroll 0 0
+Key U                     A CMS Restart
+Key C                     A CMS FvwmConsole
+Key G                     A CMS EscapeFunc
+Key L                     A   4 Exec exec xscreensaver-command -lock
+Key Escape                A   4 Exec exec xkill
+Key XF86MonBrightnessDown A   - Exec exec xbacklight -dec 10
+Key XF86MonBrightnessUp   A   - Exec exec xbacklight -inc 10
+Mouse 1 T  A MyRaiseAndMove
+Mouse 1 W  A Nop
+Mouse 1 SF A MyRaiseAndResize
+Mouse 1 2  A Close
+
+AddToFunc MyRaiseAndResize
++ I Raise
++ M ThisWindow (!Maximized) Resize
+
+AddToFunc MyRaiseAndMove
++ I Raise
++ M ThisWindow (!Maximized) Move
+
+
+# Pager, desktop, and buttons panel
+# =================================
+
+DesktopSize 1x1
+Module FvwmPager 0 8
+*FvwmPager: Columns 1
+*FvwmPager: Rows 9
+*FvwmPager: Back gray5
+*FvwmPager: Fore $[FVWM_WBG]
+*FvwmPager: Font none
+*FvwmPager: MiniIcons
+
+# xxkb is not started from `~/.xinitrc`, because then sometimes it is swallowed
+# by stalonetray: <https://sourceforge.net/p/xxkb/bugs/24/>
+AddToFunc MySwallowXxkb
++ I *FvwmButtons: (1x1+1+9 Swallow(NoClose, UseOld, NoHints) "XXkb" \
+                  "Exec exec xxkb")
+
+Module FvwmButtons
+Style FvwmButtons NeverFocus, NoTitle, TitleAtRight, Sticky, !Borders
+Style FvwmButtons WindowListSkip, StaysOnBottom
+*FvwmButtons: BoxSize fixed
+*FvwmButtons: Columns 2
+*FvwmButtons: Rows 10
+*FvwmButtons: Padding 2 2
+*FvwmButtons: Back $[FVWM_WBG]
+*FvwmButtons: Fore $[FVWM_WFG]
+*FvwmButtons: Frame 4
+*FvwmButtons: Geometry 288x1620+0+0
+*FvwmButtons: (2x9+0 Swallow(UseOld) "FvwmPager")
+*FvwmButtons: (1x1+0+9 Swallow(NoClose, UseOld) "stalonetray")
+MySwallowXxkb
+
+
+# Automatic layout
+# ================
+
+# Colors appear in pager:
+Style backgroundterm !Title, !Borders, !Handles, GrabFocus, Style *
+Style backgroundterm BackColor gray5, HilightBack gray5
+Style FvwmButtons BackColor "Dark Green"
 
 # Icons shown in pager:
 Style Emacs MiniIcon "/usr/share/icons/hicolor/scalable/apps/emacs.svg"
@@ -26,87 +143,6 @@ Style Acroread MiniIcon \
       "/opt/Adobe/Reader9/Resource/Icons/48x48/AdobeReader9.png"
 Style Vuescan MiniIcon \
       "/usr/share/icons/gnome/48x48/devices/scanner.png"
- k
-
-# Definition of a function to allow easy inline Perl preprocessing: Simply call
-# the function with a perl expression enclosed in '%{' and '}%'.  Variables
-# of type "$f::variable" can be used to store state in between function calls.
-DestroyFunc .
-AddToFunc .
-+ I SendToModule FvwmPerl eval preprocess({ 'command' => 1 } , q~$*~)
-
-
-# Removal of built-in default configuration:
-Key F1 R A -
-Key Tab A M -
-Key Escape A MC -
-Mouse 1 TS A -
-Mouse 1 F  A -
-Mouse 2 R  A -
-DestroyFunc FuncFvwmRaiseLowerX
-Silent Key Help R A -
-Key F1 R A -
-DestroyMenu MenuFvwmRoot
-
-
-AddToFunc InitPager
-+ I Module FvwmPager 0 8
-+ I *FvwmPager: Columns 1
-+ I *FvwmPager: Rows 9
-+ I *FvwmPager: Back gray5
-+ I *FvwmPager: Fore $[FVWM_WBG]
-+ I *FvwmPager: Font none
-+ I *FvwmPager: MiniIcons
-
-
-
-
-#
-# Desktop setup
-#
-
-DesktopSize 1x1
-
-
-
-#
-# Window look and feel
-#
-
-SetEnv FVWM_BORDER_WIDTH 12
-
-Style * EWMHMiniIconOverride
-Style * DecorateTransient
-Style * !Iconifiable
-Style * ClickToFocus
-Style * ClickToFocusRaisesOff
-Style * GrabFocusTransient
-Style * TileCascadePlacement
-Style * ForeColor $[FVWM_WINFG], BackColor $[FVWM_WINBG]
-Style * HilightFore $[FVWM_WINFG], HilightBack $[FVWM_WINHL]
-Style * MwmBorder, DepressableBorder
-Style * NoIcon
-Style * BorderWidth $[FVWM_BORDER_WIDTH], HandleWidth $[FVWM_BORDER_WIDTH]
-Style * MwmBorder
-Style * MwmButtons, MwmFunctions
-Style * Font "xft:DejaVuSans:size=10"
-MenuStyle * Font "xft:DejaVuSans:size=10"
-Borderstyle -- Raised
-OpaqueMoveSize 100
-HideGeometryWindow Never
-SnapAttraction 10
-
-Style backgroundterm !Title, !Borders, !Handles, GrabFocus, Style *
-Style backgroundterm BackColor gray5, HilightBack gray5
-
-Style FvwmButtons BackColor "Dark Green"
-
-ButtonStyle 6 vector 4 50x25@1 75x75@0 25x75@0 50x25@1
-ButtonStyle 6 - MwmDecorShade
-
-ImagePath $HOME/.fvwm
-
-ButtonStyle 2 Pixmap "close_button.png"
 
 AddToFunc MyMaximizeInLayer3
 + I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs", Layer 3, \
@@ -139,114 +175,25 @@ AddToFunc MyResizeInLayer4
 AddToFunc MyResizeTransientOnLayer3
 + I All (CurrentDesk, Layer 3, Transient, "Vuescan") Resize 1024p 768p
 
-AddToFunc MyUpdateOnConditions
+AddToFunc MyOnWindowAdd
 + I Any (CurrentDesk, Layer 3) MyResizeInLayer4
 + I None (CurrentDesk, Layer 3) MyUpdateIfInList
 + I MyResizeTransientOnLayer3
-+ I InitBackgroundTerms
-# above called again in case there were background terms restarted
++ I MyUpdateBackgroundTerms
 
-
-*FvwmEvent: Cmd
-*FvwmEvent: add_window MyUpdateOnConditions
-
-# Good to have after a restart of FVWM:
-*FvwmEvent: new_desk MyUpdateLayer3
-
-# Needs to be called after defining vector buttons to match the colors, etc.,
-# of all buttons with that of the title:
-ButtonStyle All --  UseTitleStyle
-
-AddToFunc RaiseAndMove
-+ I Raise
-+ M ThisWindow (!Maximized) Move
-
-AddToFunc Shade
-+ D WindowShade
-
-AddToFunc RaiseAndResize
-+ I Raise
-+ M ThisWindow (!Maximized) Resize
-
-# To get pseudo full screen 1024x768 mode with VMware Workstation running.
-AddToFunc ResizeVMware
-+ I Resize 1032p 801p
-+ I Move 0 0
-+ I Move w-9p w-51p
-
-# Useful to easily get Windows that are too large, missing back into a
-# manageable state.
-AddToFunc Resize800x600
-+ I Resize 800p 600p
-+ I Move 64p 64p
-
-Key   F4     WTSF 4    Close
-Mouse 1      T    A    RaiseAndMove
-Mouse 1      W    A    Nop
-Mouse 1      SF   A    RaiseAndResize
-
-
-
-#
-# Miscellaneous
-#
-
-EdgeResistance 100 32
-EdgeScroll 0 0
-EdgeThickness 1
-
-Key U                     A CMS Restart
-Key C                     A CMS FvwmConsole
-Key G                     A CMS EscapeFunc
-Key L                     A   4 Exec exec xscreensaver-command -lock
-Key Escape                A   4 Exec exec xkill
-Key XF86MonBrightnessDown A   - Exec exec xbacklight -dec 10
-Key XF86MonBrightnessUp   A   - Exec exec xbacklight -inc 10
-
-Mouse 1 2 A Close
-
-# Called on startups and restarts
-AddToFunc StartFunction
-+ I ModuleSynchronous FvwmPerl
-+ I InitDesks
-+ I InitPager
-+ I MyInitButtons
-+ I Module FvwmEvent
-+ I InitBackgroundTerms
-
-# Called during restarts just after StartFunction
-AddToFunc RestartFunction
-+ I InitBackgroundTerms
-+ I MyUpdateLayer3
-
-
-# xxkb is not started from `~/.xinitrc`, because then sometimes it is swallowed
-# by stalonetray: <https://sourceforge.net/p/xxkb/bugs/24/>
-AddToFunc MySwallowXxkb
-+ I *FvwmButtons: (1x1+1+9 Swallow(NoClose, UseOld, NoHints) "XXkb" \
-                  "Exec exec xxkb")
-
-
-# Setup of FVWMButtons (also known as the button bar or as the task bar)
-AddToFunc MyInitButtons
-+ I Module FvwmButtons
-+ I Style FvwmButtons NeverFocus, NoTitle, TitleAtRight, Sticky, !Borders
-+ I Style FvwmButtons WindowListSkip, StaysOnBottom
-+ I *FvwmButtons: BoxSize fixed
-+ I *FvwmButtons: Columns 2
-+ I *FvwmButtons: Rows 10
-+ I *FvwmButtons: Padding 2 2
-+ I *FvwmButtons: Back $[FVWM_WBG]
-+ I *FvwmButtons: Fore $[FVWM_WFG]
-+ I *FvwmButtons: Frame 4
-+ I *FvwmButtons: Geometry 288x1620+0+0
-+ I *FvwmButtons: (2x9+0 Swallow(UseOld) "FvwmPager")
-+ I *FvwmButtons: (1x1+0+9 Swallow(NoClose, UseOld) "stalonetray")
-+ I MySwallowXxkb
-
-
-AddToFunc InitBackgroundTerms
+# Should be called every time a window is added, since background terms are
+# recreated when closed by exiting the shell.
+AddToFunc MyUpdateBackgroundTerms
 + I All ("backgroundterm") Layer 0 2
+
+Module FvwmEvent
+*FvwmEvent: Cmd
+*FvwmEvent: add_window MyOnWindowAdd
+*FvwmEvent: new_desk MyUpdateLayer3 # nice to have after restart
+
+AddToFunc StartFunction
++ I UpdateBackgroundTerms
++ I MyUpdateLayer3
 
 # The following settings are interpreted by EMACS, do not remove them.
 # Local Variables:
