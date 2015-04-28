@@ -17,9 +17,9 @@ AddToFunc StartFunction
 
 AddToFunc StartFunction
 + I CleanupColorsets
-+ I Colorset 0 fg black, bg gray35
-+ I Colorset 1 fg black, bg gray30
-+ I Colorset 2 fg black, bg gray60
++ I Colorset 0 fg Black, bg Gray35
++ I Colorset 1 fg Black, bg Gray30
++ I Colorset 2 fg Black, bg Gray60
 
 
 # Window look and feel
@@ -131,8 +131,8 @@ AddToFunc StartFunction
 # Colors appear in pager:
 AddToFunc StartFunction
 + I Style backgroundterm !Title, !Borders, !Handles, GrabFocus, Style *
-+ I Style backgroundterm BackColor gray5, HilightBack gray5
-+ I Style FvwmButtons BackColor "Dark Green"
++ I Style backgroundterm BackColor Gray5, HilightBack Gray5
++ I Style FvwmButtons BackColor rgb:55/FF/55
 
 # Icons shown in pager:
 AddToFunc StartFunction
