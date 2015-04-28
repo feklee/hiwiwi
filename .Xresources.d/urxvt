@@ -1,21 +1,27 @@
-URxvt*background: black
-URxvt*foreground: #cccccc
-URxvt.color0:  #000000
-URxvt.color8:  #555753
-URxvt.color1:  #cc0000
-URxvt.color9:  #EF2929
-URxvt.color2:  #4E9A06
-URxvt.color10: #8AE234
-URxvt.color3:  #C4A000
-URxvt.color11: #FCE94F
-URxvt.color4:  #3465A4
-URxvt.color12: #739FCF
-URxvt.color5:  #75507B
-URxvt.color13: #AD7FA8
-URxvt.color6:  #06989A
-URxvt.color14: #34E2E2
-URxvt.color7:  #D3D7CF
-URxvt.color15: #EEEEEC
+URxvt*background: #000000
+URxvt*foreground: #AAAAAA
+
+URxvt*color0:  #000000
+URxvt*color1:  #AA0000
+URxvt*color2:  #00AA00
+URxvt*color3:  #AA5500
+URxvt*color4:  #0000AA
+URxvt*color5:  #AA00AA
+URxvt*color6:  #00AAAA
+URxvt*color7:  #AAAAAA
+
+URxvt*color8:  #555555
+URxvt*color9:  #FF5555
+URxvt*color10: #55FF55
+URxvt*color11: #FFFF55
+URxvt*color12: #5555FF
+URxvt*color13: #FF55FF
+URxvt*color14: #55FFFF
+URxvt*color15: #FFFFFF
+
+URxvt*colorIT: Yellow
+URxvt*colorBD: White
+URxvt*colorUL: Deep Sky Blue
 
 ! Select the fonts to be used. This is a comma separated list of font names
 ! that are checked in order when trying to find glyphs for characters. The
@@ -25,7 +31,5 @@ URxvt*font: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
 ! Scrollbar:
 URxvt*thickness: 20
 URxvt*scrollBar_right: on
-URxvt*scrollColor: Dim Gray
-URxvt*troughColor: Dim Gray
 
 URxvt*cursorBlink: on
