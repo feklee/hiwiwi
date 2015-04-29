@@ -201,11 +201,10 @@ AddToFunc StartFunction
 + I Module FvwmEvent
 + I *FvwmEvent: Cmd
 + I *FvwmEvent: add_window MyOnWindowAdd
-+ I *FvwmEvent: new_desk MyUpdateLayer3 # nice to have after restart
 
 AddToFunc StartFunction
 + I UpdateBackgroundTerms
-+ I MyUpdateLayer3
++ I MyUndecorateInLayer3
 
 # The following settings are interpreted by EMACS, do not remove them.
 # Local Variables:
