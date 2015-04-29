@@ -42,12 +42,12 @@ Populated desktop
 
 ![Annotated screenshot](screenshot-2.png)
 
-  1. The first application window opens without decorations, taking up
-     available space. (FVWM)
+ 1. The first application window opens without decorations, taking up available
+    space. (FVWM)
 
-  2. Additional application windows open on a layer above. Windows can only be
-     resized and closed, not maximized nor iconified. Shadow rendered by
-     compositor. (compton)
+ 2. Additional application windows open on a layer above. Windows can only be
+    resized and closed, not maximized nor iconified. Shadow rendered by
+    compositor. (compton)
 
 
 Installation
