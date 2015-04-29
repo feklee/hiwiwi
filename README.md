@@ -34,6 +34,8 @@ Pristine desktop
 
  4. Keyboard layout switcher. (xxkb)
 
+ 5. Notifications. (dunst)
+
 
 Populated desktop
 -----------------
