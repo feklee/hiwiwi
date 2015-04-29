@@ -29,6 +29,36 @@ Steps:
     compatibility, consider the age of the last modification / commit.
 
 
+Screenshots
+===========
+
+Pristine desktop
+----------------
+
+![Annotated screenshot](screenshot-1.png)
+
+ 1. Virtual desktops with current desktop highlighted in green. (FvwmPager)
+
+ 2. Shell on each desktop, on the lowest layer. (urxvt)
+
+ 3. Tray icons. (Stalonetray)
+
+ 4. Keyboard layout switcher. (xxkb)
+
+
+Populated desktop
+-----------------
+
+![Annotated screenshot](screenshot-2.png)
+
+  1. The first application window opens without decorations, taking up
+     available space. (FVWM)
+
+  2. Additional application windows open on a layer above. Windows can only be
+     resized and closed, not maximized nor iconified. Shadow rendered by
+     compositor. (compton)
+
+
 Known issues
 ============
 
