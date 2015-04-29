@@ -148,6 +148,7 @@ AddToFunc StartFunction
 + I       "/usr/share/icons/gnome/48x48/devices/scanner.png"
 
 AddToFunc MyMaximizeInLayer3
++ I All (Layer 3, !Transient) WindowStyle FixedPosition, FixedUSPosition
 + I All (Layer 3, !Transient) WindowStyle FixedSize, FixedUSSize
 + I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs", Layer 3, \
         !Transient) \
