@@ -152,8 +152,9 @@ AddToFunc MyMaximizeInLayer3
         !Transient) \
     ResizeMove 2592p 1620p 288p 0p
 + I UpdateStyles
-+ I All (Layer 3, !Transient) WindowStyle FixedPosition, FixedUSPosition
-+ I All (Layer 3, !Transient) WindowStyle FixedSize, FixedUSSize
++ I All (Layer 3, !Transient) WindowStyle \
+    FixedPosition, FixedUSPosition, FixedPPosition, \
+    FixedSize, FixedUSSize, FixedPSize
 
 AddToFunc MyUndecorateInLayer3
 + I All (Layer 3, !Transient) WindowStyle NoTitle, !Borders
