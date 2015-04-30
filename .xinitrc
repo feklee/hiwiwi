@@ -17,8 +17,6 @@ setxkbmap de,fr nodeadkeys,basic
 hsetroot -solid black
 compton -b
 
-xinput set-prop 12 'Device Enabled' 0 # disables touchpad
-
 stalonetray &
 cbatticon &
 volumeicon &
@@ -29,5 +27,7 @@ for i in {0..8}
 do
     run_urxvt_on_desk $i &
 done
+
+[ -f "$HOME/.custom_xinitrc" ] && source "$HOME/.custom_xinitrc"
 
 exec fvwm
