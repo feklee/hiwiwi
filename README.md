@@ -55,10 +55,13 @@ Installation
 
 Steps:
 
-  * Link dot files to their respective places below `$HOME`.
+ 1. Clone to: `~/.hiwiwi`
 
-  * Install software that is needed. Look in `.xinitrc`. Concerning
-    compatibility, consider the age of the last modification / commit.
+ 2. Link dot files to their respective places below `$HOME`, or include them
+    from other files.
+
+ 3. Install dependencies. Look in `.xinitrc`. Concerning compatibility of
+    software, consider the age of the last modification / commit.
 
 
 Known issues
