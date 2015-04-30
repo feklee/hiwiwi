@@ -31,6 +31,7 @@ AddToFunc StartFunction
 + I Style * EWMHMiniIconOverride
 + I Style * DecorateTransient
 + I Style * !Iconifiable
++ I Style * !Maximizable
 + I Style * ClickToFocus
 + I Style * ClickToFocusRaisesOff
 + I Style * GrabFocusTransient
@@ -146,10 +147,12 @@ AddToFunc StartFunction
           "/opt/Adobe/Reader9/Resource/Icons/48x48/AdobeReader9.png"
 + I Style Vuescan MiniIcon \
           "/usr/share/icons/gnome/48x48/devices/scanner.png"
++ I Style Gimp MiniIcon "/usr/share/icons/hicolor/48x48/apps/gimp.png"
++ I Style Gthumb MiniIcon "/usr/share/icons/hicolor/48x48/apps/gthumb.png"
 
 AddToFunc MyMaximizeInLayer3
-+ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs", Layer 3, \
-        !Transient) \
++ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs|Vuescan|Gimp|Gthumb", \
+        Layer 3, !Transient) \
     ResizeMove 2592p 1620p 288p 0p
 + I UpdateStyles
 + I All (Layer 3, !Transient) WindowStyle \
@@ -170,8 +173,9 @@ AddToFunc MyUpdate
 + I MyUpdateLayer3
 
 AddToFunc MyUpdateIfInList
-+ I Current (Maximizable, \
-    "Firefox|Thunderbird|Emacs|Gramps|Evince|Acroread|Vuescan") MyUpdate
++ I Current (!Transient, \
+    "Firefox|Thunderbird|Emacs|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb") \
+    MyUpdate
 
 AddToFunc MyResizeInLayer4
 + I Current (Layer 4, "Firefox") Resize 1024p 768p
@@ -197,11 +201,10 @@ AddToFunc StartFunction
 + I Module FvwmEvent
 + I *FvwmEvent: Cmd
 + I *FvwmEvent: add_window MyOnWindowAdd
-+ I *FvwmEvent: new_desk MyUpdateLayer3 # nice to have after restart
 
 AddToFunc StartFunction
 + I UpdateBackgroundTerms
-+ I MyUpdateLayer3
++ I MyUndecorateInLayer3
 
 # The following settings are interpreted by EMACS, do not remove them.
 # Local Variables:
