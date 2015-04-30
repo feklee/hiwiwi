@@ -17,6 +17,8 @@ setxkbmap de,fr nodeadkeys,basic
 hsetroot -solid black
 compton -b
 
+xinput set-prop 12 'Device Enabled' 0 # disables touchpad
+
 stalonetray &
 cbatticon &
 volumeicon &
