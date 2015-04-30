@@ -28,6 +28,4 @@ do
     run_urxvt_on_desk $i &
 done
 
-[ -f "$HOME/.custom_xinitrc" ] && source "$HOME/.custom_xinitrc"
-
 exec fvwm
