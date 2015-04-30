@@ -11,8 +11,8 @@ export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 export QT_DEVICE_PIXEL_RATIO=2
 
-# Disable tap to click on touchpad:
-synclient MaxTapTime=0
+# Disable touchpad:
+synclient TouchpadOff=1
 
 xrdb -merge ~/.Xresources
 xscreensaver -no-splash &
