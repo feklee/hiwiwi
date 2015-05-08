@@ -4,7 +4,7 @@ Introduction
 *hiwiwi* is a custom desktop environment made for use on a
 [ThinkPad T550 20CJS01P00][1] with Arch Linux.
 
-Guidelines:
+Concept:
 
   * System is controlled via the command line.
 
@@ -18,15 +18,50 @@ Guidelines:
 It may be interesting to make the system adapt to different screen resolutions.
 
 
+Screenshots
+===========
+
+Pristine desktop
+----------------
+
+![Annotated screenshot](screenshot-1.png)
+
+ 1. Virtual desktops with current desktop highlighted in green. (FvwmPager)
+
+ 2. Shell on each desktop, on the lowest layer. (urxvt)
+
+ 3. Tray icons. (Stalonetray)
+
+ 4. Keyboard layout switcher. (xxkb)
+
+ 5. Notifications. (dunst)
+
+
+Populated desktop
+-----------------
+
+![Annotated screenshot](screenshot-2.png)
+
+ 1. The first application window opens without decorations, taking up available
+    space. (FVWM)
+
+ 2. Additional application windows open on a layer above. Windows can only be
+    resized and closed, not maximized nor iconified. Shadow rendered by
+    compositor. (compton)
+
+
 Installation
 ============
 
 Steps:
 
-  * Link dot files to their respective places below `$HOME`.
+ 1. Clone to: `~/.hiwiwi`
 
-  * Install software that is needed. Look in `.xinitrc`. Concerning
-    compatibility, consider the age of the last modification / commit.
+ 2. Link dot files to their respective places below `$HOME`, or include them
+    from other files.
+
+ 3. Install dependencies. Look in `.xinitrc`. Concerning compatibility of
+    software, consider the age of the last modification / commit.
 
 
 Known issues

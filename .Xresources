@@ -1,4 +1,5 @@
 Xcursor.theme: redglass
+Xcursor.size: 48
 FvwmConsole*font: -xos4-terminus-medium-r-*-*-32-*-*-*-*-*-*-*
 
 #include ".Xresources.d/xft"
