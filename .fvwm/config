@@ -149,9 +149,10 @@ AddToFunc StartFunction
           "/usr/share/icons/gnome/48x48/devices/scanner.png"
 + I Style Gimp MiniIcon "/usr/share/icons/hicolor/48x48/apps/gimp.png"
 + I Style Gthumb MiniIcon "/usr/share/icons/hicolor/48x48/apps/gthumb.png"
++ I Style Xfig MiniIcon "/usr/share/pixmaps/xfig.png"
 
 AddToFunc MyMaximizeInLayer3
-+ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs|Vuescan|Gimp|Gthumb", \
++ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs|Vuescan|Gimp|Gthumb|FigInVncdesk", \
         Layer 3, !Transient) \
     ResizeMove 2592p 1620p 288p 0p
 + I UpdateStyles
@@ -174,7 +175,7 @@ AddToFunc MyUpdate
 
 AddToFunc MyUpdateIfInList
 + I Current (!Transient, \
-    "Firefox|Thunderbird|Emacs|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb") \
+    "Firefox|Thunderbird|Emacs|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk") \
     MyUpdate
 
 AddToFunc MyResizeInLayer4
