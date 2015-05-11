@@ -42,7 +42,7 @@ AddToFunc StartFunction
 + I Style * NoIcon
 + I Style * HandleWidth 12
 + I Style * MwmBorder, MwmButtons, MwmFunctions
-+ I Style * Font "xft:DejaVuSans:size=10"
++ I Style * Font "xft:DejaVuSans:size=11"
 + I ButtonStyle 2 Active Pixmap "close_button_active.png"
 + I ButtonStyle 2 Inactive Pixmap "close_button_inactive.png"
 + I Borderstyle -- Raised
