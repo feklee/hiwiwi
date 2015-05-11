@@ -11,7 +11,11 @@ Concept:
   * Easy to grasp UI, clearly laid out: Everything is visible all the time in a
     classic windowing system.
 
-  * Good visibility on a high DPI screen: 2880×1620 px / 15.5"
+  * Good visibility on a high DPI screen: 2880×1620 px at 192 DPI
+
+    Note that the actual resultion of the screen at 213 DPI is higher. However,
+    just doubling 96 DPI has been [reported][3] to give crisper font rendering
+    results, and possibly it make GUIs designed for 96 DPI look better.
 
   * Vertical screen real estate is for content.
 
@@ -93,3 +97,4 @@ Hocevar. See the COPYING file for more details.
 
 [1]: http://support.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t550/20cj/s01p00
 [2]: https://bbs.archlinux.org/viewtopic.php?pid=1523352#p1523352
+[3]: https://wiki.archlinux.org/index.php?title=HiDPI&oldid=373328#X_Server
