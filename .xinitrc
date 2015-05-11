@@ -1,7 +1,7 @@
 #!/bin/sh
 
 run_urxvt_on_desk () {
-    while true
+    while xset q &>/dev/null
     do
         urxvt -name backgroundterm -xrm "*Desk:$1" -b 10 -geometry 160x50-0+0
     done
