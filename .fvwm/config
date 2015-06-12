@@ -151,6 +151,7 @@ AddToFunc StartFunction
 + I Style Gthumb MiniIcon "/usr/share/icons/hicolor/48x48/apps/gthumb.png"
 + I Style Xfig MiniIcon "/usr/share/pixmaps/xfig.png"
 + I Style Abiword MiniIcon "/usr/share/icons/hicolor/48x48/apps/abiword.png"
++ I Style dosbox MiniIcon "/usr/share/pixmaps/dosbox.png"
 
 AddToFunc MyMaximizeInLayer3
 + I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword", \
