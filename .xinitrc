@@ -17,7 +17,7 @@ hsetroot -solid black
 compton -b
 
 stalonetray &
-cbatticon &
+cbatticon --hide-notification &
 volumeicon &
 udiskie &
 dunst &
