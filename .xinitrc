@@ -21,6 +21,7 @@ cbatticon --hide-notification &
 volumeicon &
 udiskie &
 dunst &
+xbindkeys &
 
 for i in {0..8}
 do
