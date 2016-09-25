@@ -154,9 +154,10 @@ AddToFunc StartFunction
 + I Style dosbox MiniIcon "/usr/share/pixmaps/dosbox.png"
 
 AddToFunc MyMaximizeInLayer3
-+ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Emacs|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword", \
++ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword", \
         Layer 3, !Transient) \
     ResizeMove 2592p 1620p 288p 0p
++ I All ("Emacs", Layer 3, !Transient) ResizeMove 2592p 1640p 288p 0p
 + I UpdateStyles
 + I All (Layer 3, !Transient) WindowStyle \
     FixedPosition, FixedUSPosition, FixedPPosition, \
