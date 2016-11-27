@@ -12,6 +12,6 @@ XXkb.mainwindow.border.color: red
 XXkb.mainwindow.enable: yes
 XXkb.mainwindow.image.1: de.xpm
 XXkb.mainwindow.image.2: fr.xpm
-XXkb.mainwindow.image.3:
+XXkb.mainwindow.image.3: se.xpm
 XXkb.mainwindow.image.4:
 XXkb.mainwindow.label.enable: no
