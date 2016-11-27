@@ -1,8 +1,5 @@
 XXkb.image.path: .xxkbrc.d
 
-XXkb.group.base: 1
-XXkb.group.alt: 3
-
 ! Type can be one of: normal, top, tray, wmaker
 XXkb.mainwindow.type: normal
 
@@ -15,3 +12,5 @@ XXkb.mainwindow.image.2: fr.xpm
 XXkb.mainwindow.image.3: se.xpm
 XXkb.mainwindow.image.4:
 XXkb.mainwindow.label.enable: no
+
+XXkb.controls.two_state: no
