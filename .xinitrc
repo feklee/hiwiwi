@@ -12,7 +12,7 @@ export QT_DEVICE_PIXEL_RATIO=2
 
 xrdb -merge ~/.Xresources
 xscreensaver -no-splash &
-setxkbmap de,fr nodeadkeys,basic
+setxkbmap de,fr,se nodeadkeys,basic
 hsetroot -solid black
 compton -b
 

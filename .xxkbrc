@@ -1,7 +1,7 @@
 XXkb.image.path: .xxkbrc.d
 
 XXkb.group.base: 1
-XXkb.group.alt: 2
+XXkb.group.alt: 3
 
 ! Type can be one of: normal, top, tray, wmaker
 XXkb.mainwindow.type: normal
