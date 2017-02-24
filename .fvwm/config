@@ -191,10 +191,11 @@ AddToFunc MyResizeTransientOnLayer3
 + I All (CurrentDesk, Layer 3, Transient, "Vuescan") Resize 1024p 768p
 
 AddToFunc MyOnWindowAdd
-+ I Any (CurrentDesk, Layer 3) MyResizeInLayer4
-+ I None (CurrentDesk, Layer 3) MyUpdateIfInList
-+ I MyResizeTransientOnLayer3
-+ I MyUpdateBackgroundTerms
++ I All (CurrentDesk, "*File") Resize 1024p 768p # fixme
+#+ I Any (CurrentDesk, Layer 3) MyResizeInLayer4
+#+ I None (CurrentDesk, Layer 3) MyUpdateIfInList
+#+ I MyResizeTransientOnLayer3
+#+ I MyUpdateBackgroundTerms
 
 # Should be called every time a window is added, since background terms are
 # recreated when closed by exiting the shell.
