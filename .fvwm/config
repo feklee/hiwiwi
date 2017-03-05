@@ -190,11 +190,17 @@ AddToFunc MyResizeInLayer4
 AddToFunc MyResizeTransientOnLayer3
 + I All (CurrentDesk, Layer 3, Transient, "Vuescan") Resize 1024p 768p
 
+# File chooser dialogs can get too large sometimes. See also:
+# <https://bugzilla.gnome.org/show_bug.cgi?id=779218>
+AddToFunc MyOnFileDialogAdd
++ I Current ("Open*|Save*|* file: ", Transient) ResizeMove 2200p 1400p 472p 79p
+
 AddToFunc MyOnWindowAdd
 + I Any (CurrentDesk, Layer 3) MyResizeInLayer4
 + I None (CurrentDesk, Layer 3) MyUpdateIfInList
 + I MyResizeTransientOnLayer3
 + I MyUpdateBackgroundTerms
++ I MyOnFileDialogAdd
 
 # Should be called every time a window is added, since background terms are
 # recreated when closed by exiting the shell.
