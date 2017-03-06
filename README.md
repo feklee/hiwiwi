@@ -93,7 +93,7 @@ Create a desktop for testing using VNC:
 
 Use XVNC to scale down the desktop for viewing it on a lower resolution screen:
 
-    $ x11vnc -ncache 10 -noxdamage -scale 1/2 -display :0 -rfbport 5901
+    $ x11vnc -scale 1/2 -display :0 -rfbport 5901
 
 
 License
