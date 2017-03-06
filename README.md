@@ -91,7 +91,8 @@ Create a desktop for testing using VNC:
 
     $ vncserver :0 -geometry 2880x1620 -dpi 192 -fg -xstartup ~/.xinitrc
 
-Use XVNC to scale down the desktop for viewing it on a lower resolution screen:
+Use [x11vnc][4] to scale down the desktop for viewing it on a lower resolution
+screen:
 
     $ x11vnc -scale 1/2 -display :0 -rfbport 5901
 
@@ -110,3 +111,4 @@ Hocevar. See the COPYING file for more details.
 [1]: http://support.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t550/20cj/s01p00
 [2]: https://bbs.archlinux.org/viewtopic.php?pid=1523352#p1523352
 [3]: https://wiki.archlinux.org/index.php?title=HiDPI&oldid=373328#X_Server
+[4]: http://www.karlrunge.com/x11vnc/
