@@ -183,6 +183,7 @@ AddToFunc MyUpdateIfInList
 
 AddToFunc MyResizeInLayer4
 + I Current (Layer 4, "Firefox") Resize 2048p 768p
++ I Current (Layer 4, "gThumb") Resize 2500p 1500p
 
 # Some applications always put all windows in the same layer, e.g. Vuescan.
 # Scale the transient windows. Moving them to layer 4 may also move the window
