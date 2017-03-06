@@ -84,6 +84,18 @@ Coding conventions
   * Comments in Markdown.
 
 
+Example test environment
+========================
+
+Create a desktop for testing using VNC:
+
+    $ vncserver :0 -geometry 2880x1620 -fg -xstartup $HIWIWI/.xinitrc
+
+Use XVNC to scale down the desktop for viewing it on a lower resolution screen:
+
+    $ x11vnc -ncache 10 -noxdamage -scale 1/2 -display :0 -rfbport 5901
+
+
 License
 =======
 
