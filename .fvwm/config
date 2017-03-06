@@ -193,7 +193,7 @@ AddToFunc MyResizeTransientOnLayer3
 # File chooser dialogs can get too large sometimes. See also:
 # <https://bugzilla.gnome.org/show_bug.cgi?id=779218>
 AddToFunc MyOnFileDialogAdd
-+ I Current ("Open*|Save*|* file: ", Transient) ResizeMove 2200p 1400p 472p 79p
++ I Current ("Attach*|Open*|Save*|* file: ", Transient) ResizeMove 2200p 1400p 472p 79p
 
 AddToFunc MyOnWindowAdd
 + I Any (CurrentDesk, Layer 3) MyResizeInLayer4
