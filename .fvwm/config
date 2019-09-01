@@ -138,7 +138,7 @@ AddToFunc StartFunction
 # Icons shown in pager:
 AddToFunc StartFunction
 + I Style Emacs MiniIcon "/usr/share/icons/hicolor/scalable/apps/emacs.svg"
-+ I Style Firefox MiniIcon "/usr/share/icons/hicolor/48x48/apps/firefox.png"
++ I Style firefox MiniIcon "/usr/share/icons/hicolor/48x48/apps/firefox.png"
 + I Style Thunderbird MiniIcon \
           "/usr/share/icons/hicolor/48x48/apps/thunderbird.png"
 + I Style Gramps MiniIcon "/usr/share/gramps/images/48x48/gramps.png"
@@ -155,7 +155,7 @@ AddToFunc StartFunction
 + I Style LibreOffice MiniIcon "/usr/share/icons/hicolor/48x48/apps/libreoffice-main.png"
 
 AddToFunc MyMaximizeInLayer3
-+ I All ("Firefox|Thunderbird|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice", \
++ I All ("firefox|Thunderbird|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice", \
         Layer 3, !Transient) \
     ResizeMove 2592p 1620p 288p 0p
 + I All ("Emacs", Layer 3, !Transient) ResizeMove 2592p 1640p 288p 0p
@@ -174,16 +174,16 @@ AddToFunc MyUpdateLayer3
 
 AddToFunc MyUpdate
 + I Layer 0 3
-+ I UpdateStyles # Firefox may open more windows now -> current may change
++ I UpdateStyles # firefox may open more windows now -> current may change
 + I MyUpdateLayer3
 
 AddToFunc MyUpdateIfInList
 + I Current (!Transient, \
-    "Firefox|Thunderbird|Emacs|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice") \
+    "firefox|Thunderbird|Emacs|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice") \
     MyUpdate
 
 AddToFunc MyResizeInLayer4
-+ I Current (Layer 4, "Firefox") Resize 2048p 768p
++ I Current (Layer 4, "firefox") Resize 2048p 768p
 + I Current (Layer 4, "gThumb") Resize 2500p 1500p
 
 # Some applications always put all windows in the same layer, e.g. Vuescan.
