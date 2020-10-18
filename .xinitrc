@@ -16,6 +16,8 @@ setxkbmap de,fr,se nodeadkeys,basic
 hsetroot -solid black
 compton -b
 
+xdg-mime default MyImageViewer.desktop image/jpeg
+
 stalonetray &
 cbatticon --hide-notification &
 volumeicon &
