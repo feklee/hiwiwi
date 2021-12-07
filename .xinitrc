@@ -22,6 +22,7 @@ stalonetray &
 cbatticon --hide-notification &
 volumeicon &
 udiskie &
+nm-applet &
 dunst &
 xbindkeys &
 
