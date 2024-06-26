@@ -138,9 +138,10 @@ AddToFunc StartFunction
 # Icons shown in pager:
 AddToFunc StartFunction
 + I Style Emacs MiniIcon "/usr/share/icons/hicolor/scalable/apps/emacs.svg"
-+ I Style firefox MiniIcon "/usr/share/icons/hicolor/48x48/apps/firefox.png"
-+ I Style thunderbird MiniIcon \
-          "/usr/share/icons/hicolor/48x48/apps/thunderbird.png"
++ I Style firefox MiniIcon \
+          "$[HOME]/firefox/browser/chrome/icons/default/default48.png"
++ I Style thunderbird-esr MiniIcon \
+          "$[HOME]/thunderbird/chrome/icons/default/default48.png"
 + I Style Gramps MiniIcon "/usr/share/gramps/images/48x48/gramps.png"
 + I Style Evince MiniIcon "/usr/share/icons/hicolor/48x48/apps/evince.png"
 + I Style Acroread MiniIcon \
@@ -156,7 +157,7 @@ AddToFunc StartFunction
 + I Style ImageMagick* !Title, !Borders, !Handles
 
 AddToFunc MyMaximizeInLayer3
-+ I All ("firefox|thunderbird|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice|Signal", \
++ I All ("firefox|thunderbird-esr|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice|Signal", \
         Layer 3, !Transient) \
     ResizeMove 2592p 1620p 288p 0p
 + I All ("Emacs", Layer 3, !Transient) ResizeMove 2592p 1640p 288p 0p
@@ -180,7 +181,7 @@ AddToFunc MyUpdate
 
 AddToFunc MyUpdateIfInList
 + I Current (!Transient, \
-    "firefox|thunderbird|Emacs|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice|Signal") \
+    "firefox|thunderbird-esr|Emacs|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice|Signal") \
     MyUpdate
 
 AddToFunc MyResizeInLayer4
