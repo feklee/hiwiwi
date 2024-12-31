@@ -143,6 +143,7 @@ AddToFunc StartFunction
 + I Style thunderbird-esr MiniIcon \
           "$[HOME]/thunderbird/chrome/icons/default/default48.png"
 + I Style Gramps MiniIcon "/usr/share/gramps/images/48x48/gramps.png"
++ I Style *ournal* MiniIcon "/usr/share/icons/hicolor/scalable/apps/com.github.xournalpp.xournalpp.svg"
 + I Style Evince MiniIcon "/usr/share/icons/hicolor/48x48/apps/evince.png"
 + I Style Acroread MiniIcon \
           "/opt/Adobe/Reader9/Resource/Icons/48x48/AdobeReader9.png"
