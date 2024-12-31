@@ -157,7 +157,7 @@ AddToFunc StartFunction
 + I Style ImageMagick* !Title, !Borders, !Handles
 
 AddToFunc MyMaximizeInLayer3
-+ I All ("firefox|thunderbird-esr|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice|Signal", \
++ I All ("firefox|thunderbird-esr|Gramps|*xournalpp*|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice|Signal", \
         Layer 3, !Transient) \
     ResizeMove 2592p 1620p 288p 0p
 + I All ("Emacs", Layer 3, !Transient) ResizeMove 2592p 1640p 288p 0p
@@ -181,7 +181,7 @@ AddToFunc MyUpdate
 
 AddToFunc MyUpdateIfInList
 + I Current (!Transient, \
-    "firefox|thunderbird-esr|Emacs|Gramps|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice|Signal") \
+    "firefox|thunderbird-esr|Emacs|Gramps|*xournalpp*|Evince|Acroread|Vuescan|Gimp|Gthumb|FigInVncdesk|Abiword|libreoffice|Signal") \
     MyUpdate
 
 AddToFunc MyResizeInLayer4
